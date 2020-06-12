@@ -21,6 +21,7 @@ const db = require('./queries')
 
 // settig http request method, endpoint URl, function:
 app.get('/feedback', db.getFeedback)
+app.post('/feedback', db.postFeedback)
 
 // listen on port
 app.listen(port, () => {

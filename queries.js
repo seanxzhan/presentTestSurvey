@@ -15,6 +15,7 @@ const pool = new Pool({
     port: 5432
 })
 
+// argument for query can be viewed as psql cli input
 // GET request 
 const getFeedback = (request, response) => {
     pool.query('SELECT * FROM apitest', (error, results) => {
@@ -25,6 +26,22 @@ const getFeedback = (request, response) => {
       })
 }
 
+// POST request
+const postFeedback = (request, response) => {
+    const { userID, sliderVal } = request.body
+
+    pool.query(
+        'INSERT INTO apitest (userID, sliderVal) VALUES ($1, $2) RETURNING *', 
+    [userID, sliderVal], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(201).send(
+            `userID added with sliderVal: ${results.insertId}`)
+    })
+}
+
 module.exports = {
     getFeedback,
+    postFeedback,
 }
