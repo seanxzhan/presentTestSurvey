@@ -15,19 +15,19 @@ if (ENV == 'dev') {
         port: 5432
     })
 } else {
-    // pool = new Pool({
-    //     user: 'onijnjombokzhh',
-    //     host: 'ec2-34-202-88-122.compute-1.amazonaws.com',
-    //     database: 'd5vubft84tih4p',
-    //     password: 'b71661552e670fb920ae4126dc7f798a3925675cb8fed5dd73a06df9e06d56d1',
-    //     port: 5432
-    // })
     pool = new Pool({
-        connectionString: process.env.DATABASE_URL,
-        ssl: {
-            rejectUnauthorized: false
-        }
+        user: 'onijnjombokzhh',
+        host: 'ec2-34-202-88-122.compute-1.amazonaws.com',
+        database: 'd5vubft84tih4p',
+        password: 'b71661552e670fb920ae4126dc7f798a3925675cb8fed5dd73a06df9e06d56d1',
+        port: 5432
     })
+    // pool = new Pool({
+    //     connectionString: process.env.DATABASE_URL,
+    //     ssl: {
+    //         rejectUnauthorized: false
+    //     }
+    // })
 }
 
 // note: user is test, database is api, table in database is apitest
