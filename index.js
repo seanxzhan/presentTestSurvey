@@ -20,7 +20,7 @@ app.get('/', (request, response) => {
 const db = require('./queries')
 
 // settig http request method, endpoint URl, function:
-app.get('/feedback', db.getUsers)
+app.get('/feedback', db.getFeedback)
 
 // listen on port
 app.listen(port, () => {

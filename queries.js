@@ -6,17 +6,18 @@ const Pool = require('pg').Pool
 //     password: '123456',
 //     port: 5432
 // })
+// note: user is test, database is api, table in database is apitest
 const pool = new Pool({
-    user: 'postgres',
+    user: 'test',
     host: 'localhost',
     database: 'api',
-    password: 'password',
+    password: '123456',
     port: 5432
 })
 
 // GET request 
 const getFeedback = (request, response) => {
-    pool.query('SELECT * FROM feedback', (error, results) => {
+    pool.query('SELECT * FROM apitest', (error, results) => {
         if (error) {
           throw error
         }
