@@ -58,6 +58,17 @@ Create Express API: (express server will have routes to GET and POST)
 touch .env init.sql config.js 
 ```
 
+Set parameters in .env.
+
+Use init.sql to create table and insert values. 
+
+Use config.js to create pooling.
+
+To install dependencies:
+```
+npm i cors dotenv express pg
+npm i -D nodemon
+```
 
 create an index.js file
 run the following commands to test it:
