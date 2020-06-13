@@ -1,7 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const port = 3000
+const cors = require('cors')
+const { pool } = require('./config')
 
 app.use(bodyParser.json())
 app.use(
@@ -9,6 +10,7 @@ app.use(
     extended: true,
   })
 )
+app.use(cors())
 
 // to look for a GET request on root 
 app.get('/', (request, response) => {
@@ -24,6 +26,6 @@ app.get('/feedback', db.getFeedback)
 app.post('/feedback', db.postFeedback)
 
 // listen on port
-app.listen(port, () => {
-    console.log(`App running on port ${port}.`)
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`App running on port ${process.env.PORT}.`)
   })
