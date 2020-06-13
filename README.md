@@ -14,6 +14,8 @@ connect to postgres with role ``` test ```
 ```
 psql -d postgres -U test
 ```
+Use ```\list``` to see all databases and users. 
+
 create database:
 ```
 CREATE DATABASE api;
@@ -51,6 +53,12 @@ install Express and node-postgres:
 npm i express pg
 ```
 
+Create Express API: (express server will have routes to GET and POST)
+```
+touch .env init.sql config.js 
+```
+
+
 create an index.js file
 run the following commands to test it:
 ```
@@ -78,6 +86,7 @@ in terminal, type:
 ```
 curl --data "userID=12345&sliderVal=67" http://localhost:3000/feedback
 ```
+
 
 ### Deploy on heroku ###
 ```

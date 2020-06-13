@@ -35,7 +35,7 @@ if (ENV == 'dev') {
 // argument for query can be viewed as psql cli input
 // GET request 
 const getFeedback = (request, response) => {
-    pool.query('SELECT * FROM feedback', (error, results) => {
+    pool.query('SELECT * FROM apitest', (error, results) => {
         if (error) {
           throw error
         }
@@ -48,7 +48,7 @@ const postFeedback = (request, response) => {
     const { userID, sliderVal } = request.body
 
     pool.query(
-        'INSERT INTO feedback (userID, sliderVal) VALUES ($1, $2) RETURNING *', 
+        'INSERT INTO apitest (userID, sliderVal) VALUES ($1, $2) RETURNING *', 
     [userID, sliderVal], (error, results) => {
         if (error) {
             throw error
